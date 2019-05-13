@@ -1,6 +1,6 @@
 <template>
   <div class="OrderContainer">
-    <div class="title">我的商品订单</div>
+    <div class="title">订单列表</div>
     <el-table
       ref="multipleTable"
       :data="tableData.filter(data => !search || data.order_item[0].goods_name.toLowerCase().includes(search.toLowerCase()))

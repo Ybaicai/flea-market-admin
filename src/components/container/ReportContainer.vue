@@ -28,7 +28,7 @@
     <div class="chart">
       <el-collapse-transition>
         <div id="echart" v-show="show">
-          <myChart></myChart>
+          <myChart :datetime="dateTime" :report="report"></myChart>
         </div>
       </el-collapse-transition>
     </div>
@@ -42,16 +42,13 @@ export default {
       options: [
         {
           value: '1',
-          label: '今天'
+          label: '昨天'
         }, {
           value: '2',
-          label: '昨天',
+          label: '上周'
         }, {
           value: '3',
-          label: '最近一周'
-        }, {
-          value: '4',
-          label: '最近一月'
+          label: '上个月'
         }
       ],
       options1: [
@@ -64,12 +61,6 @@ export default {
         }, {
           value: '3',
           label: '用户注册量'
-        }, {
-          value: '4',
-          label: '分类销量'
-        }, {
-          value: '5',
-          label: '订单量'
         }
       ],
       dateTime: '',
@@ -80,11 +71,8 @@ export default {
   methods: {
     showChart(){
       this.show = false
-      console.log(this.dateTime);
-
       setTimeout(() => {
         this.show = true
-
       }, 500);
     }
   },

@@ -3,12 +3,15 @@
 </template>
 <script>
 export default {
+  props: ['datetime', 'report'],
   data() {
     return {
     };
   },
   mounted() {
     this.$nextTick(() => {     //初始化
+      console.log(this.datetime);
+
       this.initChart();
       this.getChartData();
       window.addEventListener("resize", () => {
@@ -41,7 +44,7 @@ export default {
           },
           series: [{
               data: [120, 200, 150, 80, 70, 110, 130],
-              type: 'bar'
+              type: 'pie'
           }]
       };
 
